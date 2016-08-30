@@ -9,17 +9,35 @@ class App extends Component {
     super(props);
   }
   handleClick(direction) {
+
+    var data = {
+      x: 0,
+      y: 0
+    };
+
+    if (direction === 'left') {
+      data.x += -10;
+    } else if (direction === 'right') {
+      data.x += 10;
+    } else if (direction === 'up') {
+      data.y += -10;
+    } else if (direction === 'down') {
+      data.y += 10;
+    } else {
+      throw new Error('direction not valid');
+    }
+
     $.ajax({
       type: 'POST',
+      // dataType: 'json',
+      contentType: 'application/json',
       url: 'http://138.68.49.22:3000/user',
-      data: JSON.stringify({
-        x: 10,
-        y: 10
-      }),
+      data: JSON.stringify(data),
       success: function(data) {
         console.log(data);
       }
     });
+    
   }
   render() {
     return (
