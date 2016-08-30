@@ -6,7 +6,7 @@ class Nav extends Component {
   }
   componentDidMount() {
     var script = document.createElement('script');
-    script.src = 'https://rawgit.com/lentan1029/test/master/test.js';
+    script.src = 'http://138.68.49.22:3000/public/renderd3.js';
     document.body.appendChild(script);
   }
   render() {
